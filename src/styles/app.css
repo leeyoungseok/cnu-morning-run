@@ -1,0 +1,172 @@
+/* src/styles/app.css */
+:root {
+  --orange: #FF6B35;
+  --orange-light: #FFF1EC;
+  --orange-dark: #CC5229;
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: -apple-system, BlinkMacSystemFont, "Noto Sans KR", sans-serif;
+       background: #f8f7f5; color: #1a1a1a; }
+.app { max-width: 640px; margin: 0 auto; background: #fff; min-height: 100vh; }
+
+/* ── Topbar ── */
+.topbar { display: flex; align-items: center; justify-content: space-between;
+          padding: 12px 16px; border-bottom: 0.5px solid #e8e6e0;
+          background: #fff; position: sticky; top: 0; z-index: 100; }
+.logo { display: flex; align-items: center; gap: 10px; }
+.logo-icon { font-size: 24px; }
+.logo-name { font-size: 15px; font-weight: 600; color: #1a1a1a; }
+.logo-sub  { font-size: 11px; color: #888; }
+.login-btn { padding: 7px 16px; background: var(--orange); color: #fff;
+             border: none; border-radius: 20px; font-size: 13px;
+             font-weight: 600; cursor: pointer; }
+.login-btn:hover { background: var(--orange-dark); }
+.user-avatar { width: 34px; height: 34px; border-radius: 50%; cursor: pointer; }
+.user-menu { position: relative; }
+.dropdown { position: absolute; right: 0; top: 40px; background: #fff;
+            border: 0.5px solid #ddd; border-radius: var(--radius-md);
+            padding: 12px; min-width: 180px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); z-index: 200; }
+.dropdown-name  { font-size: 14px; font-weight: 600; margin-bottom: 2px; }
+.dropdown-email { font-size: 12px; color: #888; margin-bottom: 10px; }
+.dropdown button { width: 100%; padding: 6px; background: #f0f0f0;
+                   border: none; border-radius: 6px; cursor: pointer; font-size: 13px; }
+
+/* ── Hero Banner ── */
+.hero-banner { background: #1A1A2E; padding: 28px 20px;
+               color: #fff; position: relative; overflow: hidden; }
+.hero-badge  { display: inline-block; background: rgba(255,107,53,.2);
+               color: #FF9E7A; padding: 4px 12px; border-radius: 20px;
+               font-size: 12px; margin-bottom: 12px; }
+.hero-banner h1 { font-size: 22px; font-weight: 700; line-height: 1.35; margin-bottom: 6px; }
+.hero-banner p  { font-size: 13px; color: #8899BB; margin-bottom: 20px; }
+.hero-stats { display: flex; gap: 24px; }
+.stat-num { font-size: 20px; font-weight: 700; color: var(--orange); display: block; }
+.stat-lbl { font-size: 11px; color: #8899BB; }
+
+/* ── Hero Media ── */
+.hero-media { position: relative; background: #000; }
+.hero-embed, .hero-embed iframe {
+  width: 100%; aspect-ratio: 16/9; border: none; display: block; }
+.hero-video { width: 100%; aspect-ratio: 16/9; object-fit: cover; display: block; }
+.hero-img   { width: 100%; aspect-ratio: 16/9; object-fit: cover; display: block; }
+.hero-caption { position: absolute; bottom: 8px; left: 12px;
+                font-size: 12px; color: rgba(255,255,255,.8);
+                background: rgba(0,0,0,.4); padding: 3px 8px; border-radius: 4px; }
+
+/* ── Tabs ── */
+.tabs { display: flex; border-bottom: 0.5px solid #e8e6e0; background: #fff; }
+.tab  { flex: 1; padding: 10px 4px; background: none; border: none;
+        font-size: 12px; color: #888; cursor: pointer;
+        border-bottom: 2px solid transparent; display: flex;
+        flex-direction: column; align-items: center; gap: 3px; }
+.tab.active { color: var(--orange); border-bottom-color: var(--orange); font-weight: 600; }
+.tab-icon { font-size: 18px; }
+.panel { padding: 16px; }
+.login-prompt { text-align: center; padding: 20px; background: #f8f7f5;
+                border-radius: var(--radius-md); margin-bottom: 16px; }
+.login-prompt p { font-size: 14px; color: #666; margin-bottom: 10px; }
+
+/* ── Media Embeds ── */
+.media-embed { width: 100%; border-radius: var(--radius-md); overflow: hidden; background: #000; }
+.media-embed iframe, .media-embed video, .media-embed img {
+  width: 100%; display: block; aspect-ratio: 16/9; border: none; }
+.media-embed.image img { aspect-ratio: auto; max-height: 480px; object-fit: contain; }
+.media-link { color: var(--orange); text-decoration: none; font-size: 13px; }
+.featured-section { margin-bottom: 20px; }
+.featured-embed { border-radius: var(--radius-lg); overflow: hidden; }
+.featured-label { font-size: 13px; color: #666; margin-top: 6px; text-align: center; }
+.section-title { font-size: 13px; font-weight: 600; color: #888; margin-bottom: 10px;
+                 text-transform: uppercase; letter-spacing: .04em; }
+
+/* ── Gallery ── */
+.gallery-toolbar { display: flex; align-items: center; gap: 10px; margin-bottom: 14px; flex-wrap: wrap; }
+.upload-trigger  { padding: 8px 16px; background: var(--orange); color: #fff;
+                   border: none; border-radius: 20px; font-size: 13px;
+                   font-weight: 600; cursor: pointer; white-space: nowrap; }
+.gallery-hint { font-size: 12px; color: #999; }
+.gallery-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
+.gallery-item { position: relative; }
+.media-thumb  { border-radius: var(--radius-sm); overflow: hidden; background: #f0f0f0;
+                cursor: pointer; aspect-ratio: 1; display: flex; flex-direction: column;
+                align-items: center; justify-content: center; }
+.media-thumb img { width: 100%; height: 100%; object-fit: cover; }
+.media-thumb-placeholder { font-size: 28px; }
+.play-badge { position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%);
+              background: rgba(0,0,0,.55); color: #fff; width: 28px; height: 28px;
+              border-radius: 50%; display: flex; align-items: center; justify-content: center;
+              font-size: 11px; }
+.thumb-label { font-size: 10px; color: #888; padding: 4px 2px;
+               text-overflow: ellipsis; overflow: hidden; white-space: nowrap;
+               width: 100%; text-align: center; }
+.set-hero-btn { position: absolute; top: 4px; right: 4px; background: rgba(0,0,0,.5);
+                color: #FFD700; border: none; border-radius: 50%; width: 22px; height: 22px;
+                cursor: pointer; font-size: 12px; display: flex; align-items: center; justify-content: center; }
+.empty-state { text-align: center; padding: 40px 20px; color: #999; font-size: 14px; line-height: 2; }
+
+/* ── Lightbox ── */
+.lightbox { position: fixed; inset: 0; background: rgba(0,0,0,.85);
+            display: flex; align-items: center; justify-content: center; z-index: 500; }
+.lightbox-inner  { width: 90%; max-width: 600px; background: #111;
+                   border-radius: var(--radius-lg); overflow: hidden; position: relative; }
+.lightbox-close  { position: absolute; top: 8px; right: 8px; background: rgba(255,255,255,.2);
+                   color: #fff; border: none; border-radius: 50%; width: 28px; height: 28px;
+                   cursor: pointer; z-index: 10; font-size: 14px; }
+.lightbox-embed  { width: 100%; }
+.lightbox-title  { padding: 10px; font-size: 13px; color: #ccc; text-align: center; }
+
+/* ── Uploader Modal ── */
+.uploader-overlay { position: fixed; inset: 0; background: rgba(0,0,0,.5);
+                    display: flex; align-items: center; justify-content: center; z-index: 400; }
+.uploader-modal  { background: #fff; border-radius: var(--radius-lg);
+                   padding: 20px; width: 90%; max-width: 440px; }
+.uploader-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 16px; }
+.uploader-header h3 { font-size: 16px; font-weight: 600; }
+.close-btn { background: none; border: none; font-size: 18px; cursor: pointer; color: #888; }
+.mode-tabs { display: flex; gap: 8px; margin-bottom: 14px; }
+.mode-tabs button { flex: 1; padding: 8px; border: 0.5px solid #ddd;
+                    border-radius: 8px; background: #f5f5f5; cursor: pointer; font-size: 13px; }
+.mode-tabs button.active { background: var(--orange); color: #fff; border-color: var(--orange); font-weight: 600; }
+.input-group { display: flex; flex-direction: column; gap: 8px; margin-bottom: 14px; }
+.input-group label { font-size: 12px; font-weight: 600; color: #666; }
+.input-group input[type="url"],
+.input-group input[type="text"] { padding: 10px; border: 0.5px solid #ddd;
+                                   border-radius: 8px; font-size: 14px; width: 100%; }
+.link-hint { font-size: 12px; padding: 6px 10px; border-radius: 6px; background: #f0fdf4; color: #166534; }
+.file-drop { display: block; border: 2px dashed #ddd; border-radius: 10px;
+             padding: 24px; text-align: center; cursor: pointer;
+             font-size: 14px; color: #888; line-height: 1.8; }
+.file-drop:hover { border-color: var(--orange); }
+.file-drop small { font-size: 11px; color: #bbb; }
+.progress-bar { height: 6px; background: #eee; border-radius: 3px; overflow: hidden; position: relative; }
+.progress-bar div { height: 100%; background: var(--orange); transition: width .3s; }
+.progress-bar span { position: absolute; right: 0; top: -16px; font-size: 11px; color: #888; }
+.featured-check { display: flex; align-items: center; gap: 8px;
+                  font-size: 13px; margin-bottom: 14px; cursor: pointer; }
+.error-msg  { font-size: 12px; color: #dc2626; margin-bottom: 8px; }
+.submit-btn { width: 100%; padding: 11px; background: var(--orange); color: #fff;
+              border: none; border-radius: 10px; font-size: 14px;
+              font-weight: 600; cursor: pointer; }
+.submit-btn:disabled { opacity: .5; cursor: default; }
+
+/* ── Schedule (기본) ── */
+.event-card { display: flex; align-items: flex-start; gap: 12px; padding: 14px;
+              border: 0.5px solid #eee; border-radius: var(--radius-md);
+              margin-bottom: 10px; background: #fff; }
+.event-date .day { font-size: 22px; font-weight: 700; color: var(--orange); }
+.event-date .dow { font-size: 11px; color: #888; text-align: center; }
+.event-title { font-size: 14px; font-weight: 600; margin-bottom: 4px; }
+.event-meta  { display: flex; flex-wrap: wrap; gap: 8px; font-size: 12px; color: #888; }
+.join-btn    { padding: 6px 14px; background: var(--orange); color: #fff;
+               border: none; border-radius: 16px; font-size: 12px;
+               font-weight: 600; cursor: pointer; }
+.join-btn.joined { background: #f0fdf4; color: #166534; }
+.join-btn.full   { background: #f5f5f5; color: #aaa; cursor: default; }
+
+@media (max-width: 480px) {
+  .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+  .hero-banner h1 { font-size: 18px; }
+}
